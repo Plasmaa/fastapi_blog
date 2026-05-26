@@ -34,4 +34,19 @@ def home(request: Request):
 def get_posts():
     return posts
 
+@app.get("/login", include_in_schema=False)
+def login(request: Request):
+    return templates.TemplateResponse(request, "login.html", {"title": "Login"})
+
+@app.get("/register", include_in_schema=False)
+def register(request: Request):
+    return templates.TemplateResponse(request, "register.html", {"title": "Register"})
+
+@app.get("/post/{post_id}", include_in_schema=False)
+def post_detail(request: Request, post_id: int):
+    return {"message": "Post Detail placeholder"}
+
+@app.get("/user/{username}", include_in_schema=False)
+def user_posts(request: Request, username: str):
+    return {"message": "User Posts placeholder"}
 
